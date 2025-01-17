@@ -43,6 +43,10 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('A user disconnected'));
 });
 
+app.get("/", (req, res) => {
+  res.send("api working");
+});
+
 // Connect to the database and start the server
 connectDB()
   .then(() => {
