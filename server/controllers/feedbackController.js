@@ -37,7 +37,7 @@ export const submitFeedback = async (req, res) => {
 
 export const getAllFeedback = async (req, res) => {
   try {
-    const feedback = await Feedback.find().populate('attendee', 'name');
+    const feedback = await Feedback.find().populate('attendee', 'name').sort({ createdAt: -1 });
     res.json(feedback);
   } catch (error) {
     res.status(400).json({ message: error.message });
